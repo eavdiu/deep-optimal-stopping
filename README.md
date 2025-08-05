@@ -15,14 +15,34 @@ PyTorch implementation of the Deep Optimal Stopping algorithm and all three nume
 ```bash
 # from the repository root (folder name: deep-optimal-stopping/)
 export PYTHONPATH=$(pwd)
-
+```
+```bash
 # Example 1
-python experiments/ex1/sweep.py --d 10 20
+python experiments/ex1/sweep.py
 # Example 2
 python experiments/ex2/sweep.py
-# Example 3
-python experiments/ex3/sweep.py
 ```
+
+Runs training for all dimensions (d).  
+To reduce runtime or test specific cases, you can restrict dimensions, e.g.:
+
+
+```bash
+# Example 1
+python experiments/ex1/sweep.py --d 2 3 5
+# Example 2
+python experiments/ex2/sweep.py --d 10 15
+```
+
+```bash
+# Example 3
+python experiments/ex3/sweep.py --H 0.01 0.05 0.10 0.15 0.20 0.25 0.30 0.35 0.40
+python experiments/ex3/sweep.py --H 0.45 0.50 0.55
+python experiments/ex3/sweep.py --H 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00
+
+```
+Training was split across Hurst values (H) due to varying values of J. See my thesis for details.
+
 ---
 
 ## Directory layout (abridged)
