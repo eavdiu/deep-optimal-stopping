@@ -55,12 +55,6 @@ def upper_bound_standard(
     device = _device()
     num_paths = z.shape[0]
 
-    #cont = np.zeros((num_paths, N + 1), dtype=np.float32)      # continuation values V
-    #f_theta = np.zeros((num_paths, N + 1), dtype=np.float32)   # indicator process
-    #f_theta[:, -1] = 1.0
-
-    #payoff = g_fn(z)
-
     payoff = g_fn(z).to(device)
     cont = torch.zeros(num_paths, N + 1, dtype=torch.float32, device=device)
     f_theta = torch.zeros_like(cont)
